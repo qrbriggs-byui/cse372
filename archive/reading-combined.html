@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>CSE 372 - Requirements Elicitation - Week 1</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="reading-styles.css" />
+</head>
+<body>
+  <main class="wrap">
+    <!-- Reading 1-1 -->
+    <header>
+      <h1>1.1 - Why Software Requirements Matter</h1>
+      <p class="lead">A friendly note on saving time, money, and sanity before you write a single line of code.</p>
+    </header>
+
+    <p>
+      A project manager once told me, "We built exactly what was asked—just not what was needed." The team had delivered a slick mobile app for field technicians, but on day one the techs couldn't use it with gloves on, and there was no offline mode. The features were "right," yet the product missed the mark. What went wrong? Not the coding. The <em>requirements</em>.
+    </p>
+
+    <p>
+      In the Software Development Life Cycle (SDLC), requirements are the shared map that keeps everyone headed in the same direction. They capture <strong>what</strong> the system should do and the constraints around <strong>how well</strong> it needs to do it—before design decisions harden and implementation gets expensive to change. Done well, requirements reduce rework, surface risks early, and give teams a stable baseline for design, development, testing, and stakeholder conversations.
+    </p>
+
+    <h2>They create a shared understanding</h2>
+    <p>
+      Picture a campus club building a "simple" event sign-up site. One person imagines Google sign-in and calendar integration; another imagines a spreadsheet export; a third assumes SMS reminders. All reasonable, all different. Clear requirements translate those assumptions into concrete, testable statements: "Users can sign up using university SSO," "Organizers can export sign-ups to CSV," "The system sends SMS reminders 24 hours before the event." Now design has a compass, not a rumor.
+    </p>
+
+    <div class="callout">
+      <strong>Pro tip:</strong> If a requirement can't be tested, it's not finished. "Fast" becomes "p95 page load &lt; 2s on 4G." "Secure" becomes "must pass OWASP ASVS L2 controls." Precision is kindness to your future self.
+    </div>
+
+    <h2>They cut risk and rework</h2>
+    <p>
+      I once watched a team race to deliver an onboarding form. It looked beautiful—until legal asked where the consent text lived and compliance asked about data retention. Those constraints were real requirements that never made it into the backlog. Two extra sprints later, the team had re-architected storage and UI flows. Capturing non-functional and regulatory requirements early (availability targets, audit trails, PII handling, accessibility) prevents "surprise" scope and keeps schedules honest.
+    </p>
+
+    <h2>They guide design trade-offs</h2>
+    <p>
+      Good requirements don't dictate designs—they justify them. Suppose you discover through interviews that warehouse staff work in spotty Wi-Fi and wear gloves. That directly nudges design toward larger tap targets, offline-first synchronization, and local caching strategies. Without those insights in the requirements, it's easy to over-optimize for the office demo instead of the loading dock reality.
+    </p>
+
+    <blockquote>
+      "If you don't know where you're going, you'll end up someplace else." — Yogi Berra (also a pretty good product manager, apparently)
+    </blockquote>
+
+    <h2>They power testing and verification</h2>
+    <p>
+      Test cases trace back to requirements. "As a dispatcher, I can assign a job to a technician" becomes acceptance criteria and then automated tests. Performance requirements become load test thresholds. Security requirements become penetration test objectives. When requirements change, you know which tests to update. That traceability is how teams move fast <em>and</em> keep quality high.
+    </p>
+
+    <h2>They align stakeholders (and tame scope creep)</h2>
+    <p>
+      Ever been in a demo where a stakeholder says, "Oh, I thought it would also…?" Requirements are your polite way to say, "Great idea—let's compare it to our agreed scope." A lightweight feature matrix or prioritized backlog (MoSCoW, anyone?) makes trade-offs visible: if we add real-time analytics (<code>Should</code>), do we postpone bulk import (<code>Could</code>)? Clear requirements turn opinions into decisions.
+    </p>
+
+    <h2>They speed up the rest of the SDLC</h2>
+    <p>
+      Paradoxically, spending time on requirements often shortens delivery. Teams estimate more accurately, designers avoid redo loops, developers build with fewer blockers, and ops knows what "done" really means in production. It's like sharpening the saw before you cut: a small investment that pays back every day of the project.
+    </p>
+
+    <hr />
+
+    <h2>Getting requirements right (without overdoing it)</h2>
+    <p>
+      This isn't a call for a 200-page spec. It's a call for <em>right-sized</em> clarity. A practical mix often includes:
+    </p>
+    <ul>
+      <li><strong>Starter use cases or user stories:</strong> "As a field tech, I can complete a work order offline and sync later."</li>
+      <li><strong>Acceptance criteria:</strong> Concrete, testable conditions of satisfaction.</li>
+      <li><strong>Quality attributes:</strong> Performance, security, accessibility (e.g., WCAG 2.2 AA), reliability SLOs.</li>
+      <li><strong>Constraints:</strong> Browser support, integrations, legal/compliance rules, data residency.</li>
+      <li><strong>Lightweight artifacts:</strong> A sketch of the happy path, a process diagram, or a quick competitive scan to validate must-have features.</li>
+    </ul>
+
+    <p>
+      My favorite anecdote is the "gloves test." A team shipped a perfect UI that failed the first day because users wore gloves. That one observation—written as a requirement—would have changed dozens of downstream decisions. Requirements don't slow innovation; they anchor it to the world where your users actually live.
+    </p>
+
+    <footer>
+      <p><em>Bottom line:</em> Requirements are the SDLC's friendly guardrails. They build shared understanding, reduce risk, guide design, enable testing, and keep stakeholders aligned—so the product you ship is not just built right, but built <strong>for the right thing</strong>.</p>
+    </footer>
+
+    <hr class="section-divider" />
+
+    <!-- Reading 1-2 -->
+    <header>
+      <h1>1.2 Understanding Business, User, Functional, and Non-Functional Requirements</h1>
+      <p class="lead">A friendly guide to how different kinds of requirements shape great software.</p>
+    </header>
+
+    <p>
+      Think of building software like planning a big trip with friends. Someone says, "Let's go to the mountains!"—that's the <strong>business requirement</strong>. Another says, "I'd love to hike and take photos,"—that's the <strong>user requirement</strong>. Then someone starts figuring out the route, the gear, the timing, and what to pack—those are your <strong>functional</strong> and <strong>non-functional requirements</strong>. Each plays a part in getting everyone to the same destination happily and safely.
+    </p>
+
+    <h2>Business Requirements: The "Why" Behind the Project</h2>
+    <p>
+      Business requirements are about purpose and outcomes—they explain <em>why</em> the project exists. Imagine a company that wants to reduce customer service calls by 30%. That's a business goal. The software might be a self-service portal that helps customers find answers faster. The "why" is measurable and tied directly to the organization's strategy.
+    </p>
+    <p>
+      Without clear business requirements, projects can drift. I once saw a team build an entire reporting system that looked amazing—but no one used it because the real business goal was to improve decision speed, not to create more charts. The team delivered software, but missed the business mark.
+    </p>
+
+    <h2>User Requirements: The "Who" and "What" from a Human Lens</h2>
+    <p>
+      User requirements zoom in on the people who will actually interact with the system. They capture what those users need or expect in their own words. For example: "As a customer, I want to track my delivery status so I can plan my day." That's simple, human, and helps designers empathize with real-world needs.
+    </p>
+    <p>
+      When I worked with a student startup designing an event app, their "users" weren't tech-savvy. By talking to them, we discovered they didn't want fancy features—just large buttons, quick RSVP options, and reminder notifications. Those user requirements guided every design choice and kept the app approachable.
+    </p>
+
+    <h2>Functional Requirements: The "How" It Works</h2>
+    <p>
+      Functional requirements describe what the system must <em>do</em>—the specific behaviors, features, and interactions. For instance:
+    </p>
+    <ul>
+      <li>The system shall send a confirmation email after registration.</li>
+      <li>Users can reset their passwords via a secure link.</li>
+      <li>Admins can view a dashboard of active users.</li>
+    </ul>
+    <p>
+      These are the heart of the developer's to-do list. They turn user and business needs into concrete system actions. Clear functional requirements make it possible to test, validate, and track progress without guessing.
+    </p>
+
+    <div class="callout">
+      <strong>Tip:</strong> If a developer can code it and a tester can verify it, you're probably looking at a functional requirement.
+    </div>
+
+    <h2>Non-Functional Requirements: The "How Well" It Works</h2>
+    <p>
+      Non-functional requirements (NFRs) don't describe what the system does—they describe the qualities that make it usable, reliable, and lovable. They cover performance, security, usability, and more. For example:
+    </p>
+    <ul>
+      <li>Pages should load within two seconds on a 4G connection.</li>
+      <li>The system must be available 99.9% of the time.</li>
+      <li>The interface must meet WCAG 2.2 accessibility standards.</li>
+    </ul>
+    <p>
+      A great anecdote here: a team built a mobile ordering app that technically "worked." But it crashed under heavy lunch-hour traffic because performance wasn't specified. It met the functional requirements but failed the non-functional ones—so customers left frustrated and hungry.
+    </p>
+
+    <h2>How They Fit Together</h2>
+    <p>
+      You can picture these types as layers:
+    </p>
+    <ul>
+      <li><strong>Business requirements</strong> define the destination.</li>
+      <li><strong>User requirements</strong> describe the travelers' needs.</li>
+      <li><strong>Functional requirements</strong> chart the route and steps.</li>
+      <li><strong>Non-functional requirements</strong> set the comfort level for the journey.</li>
+    </ul>
+    <p>
+      When all four work together, you don't just deliver software—you deliver value that performs beautifully for real people in real contexts.
+    </p>
+
+    <blockquote>
+      "It's not enough to build things right; we have to build the right things, the right way, for the right people."
+    </blockquote>
+
+    <footer>
+      <p>
+        <em>In short:</em> Business requirements set the goal, user requirements humanize it, functional requirements describe the mechanics, and non-functional requirements ensure quality. Together, they form the DNA of successful software projects—balancing purpose, usability, and performance in harmony.
+      </p>
+    </footer>
+
+    <hr class="section-divider" />
+
+    <!-- Reading 1-3 -->
+    <header>
+      <h1>1.3 Understanding Software Industry Practices</h1>
+      <p class="lead">Connecting classroom lessons to the real world of software development.</p>
+    </header>
+
+    <p>
+      If you've ever watched a development team in action, you know that good software doesn't just appear—it's the result of countless conversations, drafts, diagrams, and decisions. Every activity in this course mirrors something real that happens every day in the software industry. Let's walk through how these outcomes connect to the professional world, one skill at a time.
+    </p>
+
+    <h2>Elicit Requirements Using a Variety of Techniques</h2>
+    <p>
+      Picture this: a new developer joins a project to build an app for local restaurants. The first thing the team does isn't coding—it's talking. They meet with owners, servers, and customers to understand what everyone actually needs. Some of those conversations are formal interviews; others happen while standing in the kitchen watching how orders are managed. 
+    </p>
+    <p>
+      That's elicitation in action. In class, when you practice stakeholder interviews or observations, you're doing the same thing professionals do—digging beneath assumptions to uncover what really matters.
+    </p>
+
+    <h2>Use the IEEE Standards to Analyze and Fill Gaps in Elicitation Data</h2>
+    <p>
+      Once the conversations wrap up, teams often realize their notes have holes. Maybe no one mentioned how data should be secured, or how the system handles errors. This is where <em>IEEE standards</em> come in handy. They serve like a recipe checklist—helping you catch the missing ingredients before the baking begins. 
+    </p>
+    <p>
+      In industry, analysts rely on these standards to make sure no critical requirement slips through. When you use IEEE templates or guidelines in class, you're practicing the same methodical review process that professionals use to build reliable systems.
+    </p>
+
+    <h2>Analyze, Model, and Refine Software Requirements</h2>
+    <p>
+      Ever tried to explain how an app works just by talking? It's tough. That's why industry teams create models—flowcharts, use case diagrams, or prototypes—to make the invisible visible. A friend once told me about a team that used sticky notes on a wall to map out a shopping cart flow before they ever touched a keyboard. They found a dozen logic gaps just from rearranging the notes!
+    </p>
+    <p>
+      When you analyze and model requirements in this course, you're doing exactly what that team did: turning vague ideas into clear, testable blueprints that guide smarter design.
+    </p>
+
+    <h2>Document Requirements According to IEEE Standards</h2>
+    <p>
+      Let's be honest—documentation isn't glamorous, but it's what keeps a project from falling apart six months later. Industry engineers follow IEEE standards because they create a common language between developers, testers, and clients. A well-written Software Requirements Specification (SRS) can save entire teams from confusion when new people join or old ones leave.
+    </p>
+    <p>
+      When you write requirements using those same standards, you're learning how to produce professional documentation that earns trust and stands up to real-world complexity.
+    </p>
+
+    <div class="callout">
+      <strong>Story from the field:</strong> A student intern once told me her manager was shocked that she already knew how to write an SRS. "You're saving us weeks of work," he said. That's the power of learning industry standards early.
+    </div>
+
+    <h2>Verify and Present Requirements with Stakeholders</h2>
+    <p>
+      Once requirements are drafted, it's time for the "show and tell." In the real world, developers and analysts regularly present their findings to clients and teammates. These sessions—called walkthroughs or reviews—aren't just about approval; they're about shared understanding. 
+    </p>
+    <p>
+      In class, when you verify requirements or present your findings, you're simulating those meetings. You're learning how to listen carefully, adjust gracefully, and make sure everyone leaves the room nodding in agreement about what comes next.
+    </p>
+
+    <h2>Practice Soft Skills with Teams and Stakeholders</h2>
+    <p>
+      Finally, let's talk about soft skills. The best engineers I've worked with weren't just brilliant coders—they were great listeners, thoughtful communicators, and patient collaborators. Whether it's calming a worried client or mediating a team debate, these human moments define a project's success just as much as any line of code.
+    </p>
+    <p>
+      Group projects, role-play interviews, and feedback sessions in this course are your training ground for those skills. Every time you practice empathy, clarity, or teamwork, you're building habits that will carry you far beyond the classroom.
+    </p>
+
+    <blockquote>
+      "Software is built by people, for people. The better we understand each other, the better the software becomes."
+    </blockquote>
+
+    <footer>
+      <p>
+        <em>In the end:</em> These course outcomes aren't just academic—they're the building blocks of professional practice. Each exercise mirrors what real software teams do every day: discover needs, document clearly, communicate openly, and collaborate with care. Master these now, and you'll be ready for the fast-paced, people-centered world of software development that waits beyond graduation.
+      </p>
+    </footer>
+
+    <hr class="section-divider" />
+
+    <!-- Reading 1-4 -->
+    <header>
+      <h1>1.4 IEEE Standards & the Everyday Documents of Requirements</h1>
+      <p class="lead">A friendly tour of what "good requirements" look like—and the docs teams use to express them.</p>
+    </header>
+
+    <p>
+      Early in my career, a product owner slid a sticky note across the table: "Make it easier." That was the whole "requirement." The team laughed, then cried a little. What does "easier" mean? Faster? Fewer clicks? Accessible with a screen reader? That's when I learned why well-structured requirements—and the standards behind them—matter so much. They turn fuzzy wishes into shared, testable understanding.
+    </p>
+
+    <h2>What the IEEE says about "good" requirements</h2>
+    <p>
+      The IEEE's guidance for requirements (commonly known today under <em>ISO/IEC/IEEE 29148</em>) brings order to the chaos. You don't need to memorize the clause numbers; just remember the spirit:
+    </p>
+    <ul>
+      <li><strong>Clear & unambiguous:</strong> One meaning only. "Fast" becomes "p95 response time &lt; 2 seconds on 4G."</li>
+      <li><strong>Necessary & feasible:</strong> If it doesn't help the mission—or can't realistically be done—it doesn't belong.</li>
+      <li><strong>Verifiable:</strong> A tester should be able to say "pass" or "fail" with evidence.</li>
+      <li><strong>Consistent & complete:</strong> No contradictions, and the important stuff (constraints, interfaces, quality attributes) isn't missing.</li>
+      <li><strong>Traceable:</strong> Each requirement links back to a stakeholder need, and forward to design, code, and tests.</li>
+    </ul>
+    <p>
+      One team I worked with printed a pocket card of these qualities. In design reviews, someone would inevitably ask, "How would we verify this?" It gently pushed fluffy statements into crisp, testable ones.
+    </p>
+
+    <div class="callout">
+      <strong>Plain-language versions help.</strong> If a non-engineer can read a requirement and explain it back accurately, you're on the right track.
+    </div>
+
+    <h2>Common documentation types (and when to use them)</h2>
+    <p>
+      Different audiences need different views of the same truth. Here are the everyday documents you'll see on real projects, and how they relate to those IEEE ideas.
+    </p>
+
+    <h3>Business Requirements Document (BRD): the "Why" and the "What" at a business level</h3>
+    <p>
+      The BRD captures outcomes and constraints in business language: "Reduce call-center volume by 20%," "Comply with state privacy law," "Launch before Q3." It sets direction without prescribing design.
+    </p>
+    <p>
+      <em>Example:</em> A bank wants fewer password-reset calls. The BRD frames the goal (reduce support costs, improve customer satisfaction) and boundaries (must meet security policy, support mobile).
+    </p>
+
+    <h3>Software Requirements Specification (SRS): the precise, testable system view</h3>
+    <p>
+      The SRS is the engineer's playground: functional requirements (<em>what the system does</em>), interfaces, data, constraints, and non-functional qualities (<em>how well it must do it</em>). IEEE guidance informs its structure and quality.
+    </p>
+    <ul>
+      <li><strong>Functional:</strong> "The system shall send a reset link that expires after 15 minutes."</li>
+      <li><strong>Non-functional:</strong> "Reset email delivery p95 &lt; 60 seconds; service availability ≥ 99.9%."</li>
+      <li><strong>Constraints:</strong> "Must support WCAG 2.2 AA; data stored in region X."</li>
+    </ul>
+    <p>
+      <em>Anecdote:</em> On a healthcare project, our SRS's privacy constraints (who can see what, when, and why) saved us from a costly rework when legal requirements shifted mid-sprint—we had traceability.
+    </p>
+
+    <h3>User stories: the conversational slices of value</h3>
+    <p>
+      Agile teams favor user stories to center real people and outcomes: <code>As a customer, I want to reset my password so I can sign in without calling support.</code> They're small, negotiable, and invite conversation.
+    </p>
+    <p>
+      The trick is pairing stories with acceptance criteria (see below) so they remain testable and aligned with SRS-level rigor. Think of stories as doorways into deeper specs, not replacements.
+    </p>
+
+    <h3>Use cases: the structured narratives of interaction</h3>
+    <p>
+      Use cases describe goal-driven interactions between an <em>actor</em> (like "Customer") and the system, complete with <em>main flow</em> and <em>alternate flows</em>. They're great for exploring edge cases and system boundaries.
+    </p>
+    <p>
+      <em>Example (tiny):</em> "Customer requests password reset &rarr; system verifies email &rarr; sends time-limited link &rarr; customer sets new password." Alternate flows handle wrong emails, expired links, or rate limits.
+    </p>
+
+    <h3>Acceptance criteria: the definition of "done" in plain tests</h3>
+    <p>
+      Acceptance criteria turn intent into checks. They can be bullet points or scenario-based (like Given/When/Then). They're where product, dev, and test shake hands.
+    </p>
+    <ul>
+      <li><strong>Bullets:</strong> "Link expires after 15 minutes." "At most 5 requests/hour per account."</li>
+      <li><strong>Gherkin style:</strong> <code>Given</code> a registered email, <code>When</code> I request reset, <code>Then</code> I receive a link within 60 seconds.</li>
+    </ul>
+    <p>
+      A QA lead once told me, "Ambiguity dies in acceptance criteria." She was right—our bug count dropped when we wrote them first.
+    </p>
+
+    <h2>How these pieces fit together</h2>
+    <p>
+      Imagine a simple chain:
+    </p>
+    <ul>
+      <li><strong>BRD</strong> sets the business outcomes and constraints.</li>
+      <li><strong>SRS</strong> formalizes system behavior and qualities under IEEE guidance.</li>
+      <li><strong>User stories</strong> express small, valuable increments of behavior.</li>
+      <li><strong>Use cases</strong> explore flows and edge cases around those behaviors.</li>
+      <li><strong>Acceptance criteria</strong> make each increment verifiable.</li>
+    </ul>
+    <p>
+      On healthy teams, these artifacts aren't rivals; they're layers. The BRD points north, the SRS is the map, stories are the daily steps, use cases check the paths, and acceptance criteria tell you when you've arrived.
+    </p>
+
+    <blockquote>
+      "Good requirements are less about fancy templates and more about shared understanding. The standards just help us get there faster—and with fewer surprises."
+    </blockquote>
+
+    <footer>
+      <p>
+        <em>Bottom line:</em> IEEE guidance gives requirements their backbone—clear, verifiable, consistent, and traceable. The everyday documents (BRD, SRS, user stories, use cases, acceptance criteria) give different audiences the view they need. Use them together, and that sticky note that once said "Make it easier" becomes a product your users will actually love.
+      </p>
+    </footer>
+
+    <hr class="section-divider" />
+
+    <!-- Reading 1-5 -->
+    <header>
+      <h1>1.5 Foundational Professional Skills: Communication, Teamwork, and Active Listening</h1>
+      <p class="lead">Why these "soft skills" are actually the hardest—and most rewarding—to master.</p>
+    </header>
+
+    <p>
+      In every workplace I've ever been part of—whether it was a small student project or a big corporate software team—the same truth kept surfacing: it's not just what you know, it's how you connect with others. Communication, teamwork, and active listening might sound simple, but they're the foundation that holds every project together. Without them, even the best technical skills can fall flat.
+    </p>
+
+    <h2>Communication: Making Understanding Happen</h2>
+    <p>
+      I once watched a developer explain a new feature to a non-technical client using dense jargon and architecture diagrams. The client nodded politely, but it was clear she was lost. A few weeks later, the client was frustrated because the feature didn't meet her needs—she'd misunderstood what the developer meant. 
+    </p>
+    <p>
+      Communication isn't just talking—it's making sure the other person understands. That means using plain language, visuals, and examples, and always checking in: "Does that make sense?" In professional settings, great communicators bridge gaps between technical and non-technical worlds, helping everyone move in the same direction.
+    </p>
+    <div class="callout">
+      <strong>Pro tip:</strong> Communication isn't about showing how much you know—it's about making it easy for others to know what matters.
+    </div>
+
+    <h2>Teamwork: Building Something Bigger Together</h2>
+    <p>
+      A few semesters ago, I worked with a group of classmates on a software design project. We were all strong programmers, but at first, we worked in silos—each person guarding their piece of the puzzle. The result? Code that didn't fit together and a lot of late nights fixing merge conflicts. 
+    </p>
+    <p>
+      Then we started having short daily check-ins. We shared updates, asked for help, and celebrated small wins. Suddenly, the project clicked—literally and figuratively. Our collaboration became smoother, and morale went up. That's teamwork: balancing individual strengths while staying focused on a shared goal. In the industry, teamwork looks like this too—cross-functional teams aligning design, development, and business goals to deliver something no one could create alone.
+    </p>
+
+    <h2>Active Listening: The Skill That Changes Everything</h2>
+    <p>
+      Once, during an internship, I joined a requirements meeting where a senior engineer said almost nothing for half an hour. I assumed he was disengaged—until he spoke up and perfectly summarized what everyone had said, including a concern that no one had voiced directly. The room went silent, then everyone nodded in agreement. That's active listening in action.
+    </p>
+    <p>
+      Active listening means giving someone your full attention, asking clarifying questions, and reflecting back what you've heard. It's not waiting for your turn to talk—it's tuning in to understand. When you listen actively, you catch details, prevent misunderstandings, and build trust. Teams that practice active listening avoid "we thought you meant…" moments, saving time and frustration.
+    </p>
+
+    <blockquote>
+      "People don't care how much you know until they know how much you care." — Theodore Roosevelt
+    </blockquote>
+
+    <h2>Putting It All Together</h2>
+    <p>
+      These three skills—communication, teamwork, and active listening—work best when they work together. You communicate clearly, so your team stays aligned. You collaborate openly, so everyone's strengths shine. You listen actively, so people feel heard and valued. When that happens, teams don't just complete projects—they build relationships, grow trust, and create work they're proud of.
+    </p>
+
+    <footer>
+      <p>
+        <em>In short:</em> technical skills may get your foot in the door, but communication, teamwork, and listening keep the door open. Mastering these foundational professional skills turns good professionals into great collaborators—and great collaborators into future leaders.
+      </p>
+    </footer>
+  </main>
+</body>
+</html>
+
+

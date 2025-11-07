@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>IEEE Standards for Requirements & Common Documentation Types</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root{
+      --ink:#222;
+      --muted:#666;
+      --accent:#0b61a4;
+      --paper:#fff;
+      --border:#e6e6e6;
+      --maxw: 840px;
+    }
+    html,body{
+      margin:0;
+      padding:0;
+      background:var(--paper);
+      color:var(--ink);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      line-height:1.6;
+      font-size:18px;
+    }
+    .wrap{
+      max-width:var(--maxw);
+      margin:2rem auto 4rem;
+      padding:0 1.25rem;
+    }
+    header{
+      border-bottom:1px solid var(--border);
+      margin-bottom:1.5rem;
+      padding-bottom:1rem;
+    }
+    h1{
+      font-size:2rem;
+      margin:0 0 .25rem 0;
+      line-height:1.25;
+    }
+    h2{
+      font-size:1.35rem;
+      margin:2rem 0 .5rem 0;
+      line-height:1.35;
+      border-top:1px solid var(--border);
+      padding-top:1rem;
+    }
+    p{margin:.75rem 0;}
+    a{color:var(--accent);text-decoration:none;}
+    a:hover{text-decoration:underline;}
+    ul{padding-left:1.25rem;}
+    li{margin:.35rem 0;}
+    .lead{color:var(--muted);font-size:1.05rem;margin-top:.25rem;}
+    .callout{
+      background:#f9fafb;
+      border:1px solid var(--border);
+      border-left:4px solid var(--accent);
+      padding:.85rem 1rem;
+      margin:1rem 0 1.25rem;
+    }
+    blockquote{
+      margin:1rem 0;
+      padding:.25rem 0 .25rem 1rem;
+      border-left:4px solid var(--border);
+      color:#444;
+      font-style:italic;
+    }
+    code{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      background:#f6f8fa;
+      border:1px solid var(--border);
+      padding:.1rem .3rem;
+      border-radius:4px;
+      font-size:.95em;
+    }
+    footer{
+      margin-top:2rem;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <h1>IEEE Standards & the Everyday Documents of Requirements</h1>
+      <p class="lead">A friendly tour of what “good requirements” look like—and the docs teams use to express them.</p>
+    </header>
+
+    <p>
+      Early in my career, a product owner slid a sticky note across the table: “Make it easier.” That was the whole “requirement.” The team laughed, then cried a little. What does “easier” mean? Faster? Fewer clicks? Accessible with a screen reader? That’s when I learned why well-structured requirements—and the standards behind them—matter so much. They turn fuzzy wishes into shared, testable understanding.
+    </p>
+
+    <h2>What the IEEE says about “good” requirements</h2>
+    <p>
+      The IEEE’s guidance for requirements (commonly known today under <em>ISO/IEC/IEEE 29148</em>) brings order to the chaos. You don’t need to memorize the clause numbers; just remember the spirit:
+    </p>
+    <ul>
+      <li><strong>Clear & unambiguous:</strong> One meaning only. “Fast” becomes “p95 response time &lt; 2 seconds on 4G.”</li>
+      <li><strong>Necessary & feasible:</strong> If it doesn’t help the mission—or can’t realistically be done—it doesn’t belong.</li>
+      <li><strong>Verifiable:</strong> A tester should be able to say “pass” or “fail” with evidence.</li>
+      <li><strong>Consistent & complete:</strong> No contradictions, and the important stuff (constraints, interfaces, quality attributes) isn’t missing.</li>
+      <li><strong>Traceable:</strong> Each requirement links back to a stakeholder need, and forward to design, code, and tests.</li>
+    </ul>
+    <p>
+      One team I worked with printed a pocket card of these qualities. In design reviews, someone would inevitably ask, “How would we verify this?” It gently pushed fluffy statements into crisp, testable ones.
+    </p>
+
+    <div class="callout">
+      <strong>Plain-language versions help.</strong> If a non-engineer can read a requirement and explain it back accurately, you’re on the right track.
+    </div>
+
+    <h2>Common documentation types (and when to use them)</h2>
+    <p>
+      Different audiences need different views of the same truth. Here are the everyday documents you’ll see on real projects, and how they relate to those IEEE ideas.
+    </p>
+
+    <h3>Business Requirements Document (BRD): the “Why” and the “What” at a business level</h3>
+    <p>
+      The BRD captures outcomes and constraints in business language: “Reduce call-center volume by 20%,” “Comply with state privacy law,” “Launch before Q3.” It sets direction without prescribing design.
+    </p>
+    <p>
+      <em>Example:</em> A bank wants fewer password-reset calls. The BRD frames the goal (reduce support costs, improve customer satisfaction) and boundaries (must meet security policy, support mobile).
+    </p>
+
+    <h3>Software Requirements Specification (SRS): the precise, testable system view</h3>
+    <p>
+      The SRS is the engineer’s playground: functional requirements (<em>what the system does</em>), interfaces, data, constraints, and non-functional qualities (<em>how well it must do it</em>). IEEE guidance informs its structure and quality.
+    </p>
+    <ul>
+      <li><strong>Functional:</strong> “The system shall send a reset link that expires after 15 minutes.”</li>
+      <li><strong>Non-functional:</strong> “Reset email delivery p95 &lt; 60 seconds; service availability ≥ 99.9%.”</li>
+      <li><strong>Constraints:</strong> “Must support WCAG 2.2 AA; data stored in region X.”</li>
+    </ul>
+    <p>
+      <em>Anecdote:</em> On a healthcare project, our SRS’s privacy constraints (who can see what, when, and why) saved us from a costly rework when legal requirements shifted mid-sprint—we had traceability.
+    </p>
+
+    <h3>User stories: the conversational slices of value</h3>
+    <p>
+      Agile teams favor user stories to center real people and outcomes: <code>As a customer, I want to reset my password so I can sign in without calling support.</code> They’re small, negotiable, and invite conversation.
+    </p>
+    <p>
+      The trick is pairing stories with acceptance criteria (see below) so they remain testable and aligned with SRS-level rigor. Think of stories as doorways into deeper specs, not replacements.
+    </p>
+
+    <h3>Use cases: the structured narratives of interaction</h3>
+    <p>
+      Use cases describe goal-driven interactions between an <em>actor</em> (like “Customer”) and the system, complete with <em>main flow</em> and <em>alternate flows</em>. They’re great for exploring edge cases and system boundaries.
+    </p>
+    <p>
+      <em>Example (tiny):</em> “Customer requests password reset &rarr; system verifies email &rarr; sends time-limited link &rarr; customer sets new password.” Alternate flows handle wrong emails, expired links, or rate limits.
+    </p>
+
+    <h3>Acceptance criteria: the definition of “done” in plain tests</h3>
+    <p>
+      Acceptance criteria turn intent into checks. They can be bullet points or scenario-based (like Given/When/Then). They’re where product, dev, and test shake hands.
+    </p>
+    <ul>
+      <li><strong>Bullets:</strong> “Link expires after 15 minutes.” “At most 5 requests/hour per account.”</li>
+      <li><strong>Gherkin style:</strong> <code>Given</code> a registered email, <code>When</code> I request reset, <code>Then</code> I receive a link within 60 seconds.</li>
+    </ul>
+    <p>
+      A QA lead once told me, “Ambiguity dies in acceptance criteria.” She was right—our bug count dropped when we wrote them first.
+    </p>
+
+    <h2>How these pieces fit together</h2>
+    <p>
+      Imagine a simple chain:
+    </p>
+    <ul>
+      <li><strong>BRD</strong> sets the business outcomes and constraints.</li>
+      <li><strong>SRS</strong> formalizes system behavior and qualities under IEEE guidance.</li>
+      <li><strong>User stories</strong> express small, valuable increments of behavior.</li>
+      <li><strong>Use cases</strong> explore flows and edge cases around those behaviors.</li>
+      <li><strong>Acceptance criteria</strong> make each increment verifiable.</li>
+    </ul>
+    <p>
+      On healthy teams, these artifacts aren’t rivals; they’re layers. The BRD points north, the SRS is the map, stories are the daily steps, use cases check the paths, and acceptance criteria tell you when you’ve arrived.
+    </p>
+
+    <blockquote>
+      “Good requirements are less about fancy templates and more about shared understanding. The standards just help us get there faster—and with fewer surprises.”
+    </blockquote>
+
+    <footer>
+      <p>
+        <em>Bottom line:</em> IEEE guidance gives requirements their backbone—clear, verifiable, consistent, and traceable. The everyday documents (BRD, SRS, user stories, use cases, acceptance criteria) give different audiences the view they need. Use them together, and that sticky note that once said “Make it easier” becomes a product your users will actually love.
+      </p>
+    </footer>
+  </main>
+</body>
+</html>

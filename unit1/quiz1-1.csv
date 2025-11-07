@@ -1,0 +1,6 @@
+Question,AnswerA,AnswerB,AnswerC,AnswerD,CorrectAnswer
+What is the main purpose of software requirements in the SDLC?,To describe how code should be written,To ensure developers use the latest technologies,To define what the system should do and how well it should perform,To outline the project budget,C
+"According to the article, what happens when requirements are unclear?",Developers become more creative,"The team builds what was asked, but not what was needed",Testing becomes easier,The project finishes early,B
+What is the key benefit of capturing regulatory and non-functional requirements early?,It improves marketing opportunities,It avoids costly rework and project delays,It increases the number of features delivered,It allows skipping design reviews,B
+How do requirements support testing and verification?,They provide a traceable link between features and tests,They define the testing tools to be used,They eliminate the need for user testing,They specify only UI behavior,A
+Why does the author compare writing requirements to “sharpening the saw”?,It helps teams avoid cutting corners,It makes development slower but safer,It’s an upfront investment that speeds up the rest of the process,It emphasizes perfect documentation,C

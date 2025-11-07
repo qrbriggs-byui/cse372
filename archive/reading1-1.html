@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Why Software Requirements Matter in the SDLC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--
+    This page mimics the clean, notes-style reading pages from the BYU-I CSE course site:
+    single-column layout, generous line-height, simple headings, and unobtrusive links.
+  -->
+  <style>
+    :root{
+      --ink:#222;
+      --muted:#666;
+      --accent:#0b61a4;
+      --paper:#fff;
+      --border:#e6e6e6;
+      --maxw: 840px;
+    }
+    html,body{
+      margin:0;
+      padding:0;
+      background:var(--paper);
+      color:var(--ink);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+      line-height:1.6;
+      font-size:18px;
+    }
+    .wrap{
+      max-width:var(--maxw);
+      margin: 2.25rem auto 4rem;
+      padding: 0 1.25rem;
+    }
+    header{
+      margin-bottom:1.5rem;
+      border-bottom:1px solid var(--border);
+      padding-bottom:1rem;
+    }
+    h1{
+      font-size:2rem;
+      margin:0 0 .25rem 0;
+      line-height:1.25;
+    }
+    h2{
+      font-size:1.35rem;
+      margin:2rem 0 .5rem 0;
+      line-height:1.35;
+      border-top:1px solid var(--border);
+      padding-top:1rem;
+    }
+    p{ margin:.75rem 0; }
+    a{ color:var(--accent); text-decoration:none; }
+    a:hover, a:focus{ text-decoration:underline; }
+    ul{ padding-left:1.25rem; }
+    li{ margin:.35rem 0; }
+    .lead{
+      color:var(--muted);
+      font-size:1.05rem;
+      margin-top:.25rem;
+    }
+    .callout{
+      background:#f9fafb;
+      border:1px solid var(--border);
+      border-left:4px solid var(--accent);
+      padding:.85rem 1rem;
+      margin:1rem 0 1.25rem;
+    }
+    blockquote{
+      margin:1rem 0;
+      padding:.25rem 0 .25rem 1rem;
+      border-left:4px solid var(--border);
+      color:#444;
+      font-style:italic;
+    }
+    code{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      background:#f6f8fa;
+      border:1px solid var(--border);
+      padding:.1rem .3rem;
+      border-radius:4px;
+      font-size:.95em;
+    }
+    hr{
+      border:0;
+      border-top:1px solid var(--border);
+      margin:2rem 0;
+    }
+    footer{
+      margin-top:2rem;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <h1>Why Software Requirements Matter in the SDLC</h1>
+      <p class="lead">A friendly note on saving time, money, and sanity before you write a single line of code.</p>
+    </header>
+
+    <p>
+      A project manager once told me, “We built exactly what was asked—just not what was needed.” The team had delivered a slick mobile app for field technicians, but on day one the techs couldn’t use it with gloves on, and there was no offline mode. The features were “right,” yet the product missed the mark. What went wrong? Not the coding. The <em>requirements</em>.
+    </p>
+
+    <p>
+      In the Software Development Life Cycle (SDLC), requirements are the shared map that keeps everyone headed in the same direction. They capture <strong>what</strong> the system should do and the constraints around <strong>how well</strong> it needs to do it—before design decisions harden and implementation gets expensive to change. Done well, requirements reduce rework, surface risks early, and give teams a stable baseline for design, development, testing, and stakeholder conversations.
+    </p>
+
+    <h2>They create a shared understanding</h2>
+    <p>
+      Picture a campus club building a “simple” event sign-up site. One person imagines Google sign-in and calendar integration; another imagines a spreadsheet export; a third assumes SMS reminders. All reasonable, all different. Clear requirements translate those assumptions into concrete, testable statements: “Users can sign up using university SSO,” “Organizers can export sign-ups to CSV,” “The system sends SMS reminders 24 hours before the event.” Now design has a compass, not a rumor.
+    </p>
+
+    <div class="callout">
+      <strong>Pro tip:</strong> If a requirement can’t be tested, it’s not finished. “Fast” becomes “p95 page load &lt; 2s on 4G.” “Secure” becomes “must pass OWASP ASVS L2 controls.” Precision is kindness to your future self.
+    </div>
+
+    <h2>They cut risk and rework</h2>
+    <p>
+      I once watched a team race to deliver an onboarding form. It looked beautiful—until legal asked where the consent text lived and compliance asked about data retention. Those constraints were real requirements that never made it into the backlog. Two extra sprints later, the team had re-architected storage and UI flows. Capturing non-functional and regulatory requirements early (availability targets, audit trails, PII handling, accessibility) prevents “surprise” scope and keeps schedules honest.
+    </p>
+
+    <h2>They guide design trade-offs</h2>
+    <p>
+      Good requirements don’t dictate designs—they justify them. Suppose you discover through interviews that warehouse staff work in spotty Wi-Fi and wear gloves. That directly nudges design toward larger tap targets, offline-first synchronization, and local caching strategies. Without those insights in the requirements, it’s easy to over-optimize for the office demo instead of the loading dock reality.
+    </p>
+
+    <blockquote>
+      “If you don’t know where you’re going, you’ll end up someplace else.” — Yogi Berra (also a pretty good product manager, apparently)
+    </blockquote>
+
+    <h2>They power testing and verification</h2>
+    <p>
+      Test cases trace back to requirements. “As a dispatcher, I can assign a job to a technician” becomes acceptance criteria and then automated tests. Performance requirements become load test thresholds. Security requirements become penetration test objectives. When requirements change, you know which tests to update. That traceability is how teams move fast <em>and</em> keep quality high.
+    </p>
+
+    <h2>They align stakeholders (and tame scope creep)</h2>
+    <p>
+      Ever been in a demo where a stakeholder says, “Oh, I thought it would also…?” Requirements are your polite way to say, “Great idea—let’s compare it to our agreed scope.” A lightweight feature matrix or prioritized backlog (MoSCoW, anyone?) makes trade-offs visible: if we add real-time analytics (<code>Should</code>), do we postpone bulk import (<code>Could</code>)? Clear requirements turn opinions into decisions.
+    </p>
+
+    <h2>They speed up the rest of the SDLC</h2>
+    <p>
+      Paradoxically, spending time on requirements often shortens delivery. Teams estimate more accurately, designers avoid redo loops, developers build with fewer blockers, and ops knows what “done” really means in production. It’s like sharpening the saw before you cut: a small investment that pays back every day of the project.
+    </p>
+
+    <hr />
+
+    <h2>Getting requirements right (without overdoing it)</h2>
+    <p>
+      This isn’t a call for a 200-page spec. It’s a call for <em>right-sized</em> clarity. A practical mix often includes:
+    </p>
+    <ul>
+      <li><strong>Starter use cases or user stories:</strong> “As a field tech, I can complete a work order offline and sync later.”</li>
+      <li><strong>Acceptance criteria:</strong> Concrete, testable conditions of satisfaction.</li>
+      <li><strong>Quality attributes:</strong> Performance, security, accessibility (e.g., WCAG 2.2 AA), reliability SLOs.</li>
+      <li><strong>Constraints:</strong> Browser support, integrations, legal/compliance rules, data residency.</li>
+      <li><strong>Lightweight artifacts:</strong> A sketch of the happy path, a process diagram, or a quick competitive scan to validate must-have features.</li>
+    </ul>
+
+    <p>
+      My favorite anecdote is the “gloves test.” A team shipped a perfect UI that failed the first day because users wore gloves. That one observation—written as a requirement—would have changed dozens of downstream decisions. Requirements don’t slow innovation; they anchor it to the world where your users actually live.
+    </p>
+
+    <footer>
+      <p><em>Bottom line:</em> Requirements are the SDLC’s friendly guardrails. They build shared understanding, reduce risk, guide design, enable testing, and keep stakeholders aligned—so the product you ship is not just built right, but built <strong>for the right thing</strong>.</p>
+    </footer>
+  </main>
+</body>
+</html>

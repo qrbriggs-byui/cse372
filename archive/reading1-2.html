@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Understanding Business, User, Functional, and Non-Functional Requirements</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root{
+      --ink:#222;
+      --muted:#666;
+      --accent:#0b61a4;
+      --paper:#fff;
+      --border:#e6e6e6;
+      --maxw: 840px;
+    }
+    html,body{
+      margin:0;
+      padding:0;
+      background:var(--paper);
+      color:var(--ink);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      line-height:1.6;
+      font-size:18px;
+    }
+    .wrap{
+      max-width:var(--maxw);
+      margin:2rem auto 4rem;
+      padding:0 1.25rem;
+    }
+    header{
+      border-bottom:1px solid var(--border);
+      margin-bottom:1.5rem;
+      padding-bottom:1rem;
+    }
+    h1{
+      font-size:2rem;
+      margin:0 0 .25rem 0;
+      line-height:1.25;
+    }
+    h2{
+      font-size:1.35rem;
+      margin:2rem 0 .5rem 0;
+      line-height:1.35;
+      border-top:1px solid var(--border);
+      padding-top:1rem;
+    }
+    p{margin:.75rem 0;}
+    a{color:var(--accent);text-decoration:none;}
+    a:hover{text-decoration:underline;}
+    ul{padding-left:1.25rem;}
+    li{margin:.35rem 0;}
+    .lead{color:var(--muted);font-size:1.05rem;margin-top:.25rem;}
+    .callout{
+      background:#f9fafb;
+      border:1px solid var(--border);
+      border-left:4px solid var(--accent);
+      padding:.85rem 1rem;
+      margin:1rem 0 1.25rem;
+    }
+    blockquote{
+      margin:1rem 0;
+      padding:.25rem 0 .25rem 1rem;
+      border-left:4px solid var(--border);
+      color:#444;
+      font-style:italic;
+    }
+    footer{
+      margin-top:2rem;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <h1>Understanding Business, User, Functional, and Non-Functional Requirements</h1>
+      <p class="lead">A friendly guide to how different kinds of requirements shape great software.</p>
+    </header>
+
+    <p>
+      Think of building software like planning a big trip with friends. Someone says, “Let’s go to the mountains!”—that’s the <strong>business requirement</strong>. Another says, “I’d love to hike and take photos,”—that’s the <strong>user requirement</strong>. Then someone starts figuring out the route, the gear, the timing, and what to pack—those are your <strong>functional</strong> and <strong>non-functional requirements</strong>. Each plays a part in getting everyone to the same destination happily and safely.
+    </p>
+
+    <h2>Business Requirements: The “Why” Behind the Project</h2>
+    <p>
+      Business requirements are about purpose and outcomes—they explain <em>why</em> the project exists. Imagine a company that wants to reduce customer service calls by 30%. That’s a business goal. The software might be a self-service portal that helps customers find answers faster. The “why” is measurable and tied directly to the organization’s strategy.
+    </p>
+    <p>
+      Without clear business requirements, projects can drift. I once saw a team build an entire reporting system that looked amazing—but no one used it because the real business goal was to improve decision speed, not to create more charts. The team delivered software, but missed the business mark.
+    </p>
+
+    <h2>User Requirements: The “Who” and “What” from a Human Lens</h2>
+    <p>
+      User requirements zoom in on the people who will actually interact with the system. They capture what those users need or expect in their own words. For example: “As a customer, I want to track my delivery status so I can plan my day.” That’s simple, human, and helps designers empathize with real-world needs.
+    </p>
+    <p>
+      When I worked with a student startup designing an event app, their “users” weren’t tech-savvy. By talking to them, we discovered they didn’t want fancy features—just large buttons, quick RSVP options, and reminder notifications. Those user requirements guided every design choice and kept the app approachable.
+    </p>
+
+    <h2>Functional Requirements: The “How” It Works</h2>
+    <p>
+      Functional requirements describe what the system must <em>do</em>—the specific behaviors, features, and interactions. For instance:
+    </p>
+    <ul>
+      <li>The system shall send a confirmation email after registration.</li>
+      <li>Users can reset their passwords via a secure link.</li>
+      <li>Admins can view a dashboard of active users.</li>
+    </ul>
+    <p>
+      These are the heart of the developer’s to-do list. They turn user and business needs into concrete system actions. Clear functional requirements make it possible to test, validate, and track progress without guessing.
+    </p>
+
+    <div class="callout">
+      <strong>Tip:</strong> If a developer can code it and a tester can verify it, you’re probably looking at a functional requirement.
+    </div>
+
+    <h2>Non-Functional Requirements: The “How Well” It Works</h2>
+    <p>
+      Non-functional requirements (NFRs) don’t describe what the system does—they describe the qualities that make it usable, reliable, and lovable. They cover performance, security, usability, and more. For example:
+    </p>
+    <ul>
+      <li>Pages should load within two seconds on a 4G connection.</li>
+      <li>The system must be available 99.9% of the time.</li>
+      <li>The interface must meet WCAG 2.2 accessibility standards.</li>
+    </ul>
+    <p>
+      A great anecdote here: a team built a mobile ordering app that technically “worked.” But it crashed under heavy lunch-hour traffic because performance wasn’t specified. It met the functional requirements but failed the non-functional ones—so customers left frustrated and hungry.
+    </p>
+
+    <h2>How They Fit Together</h2>
+    <p>
+      You can picture these types as layers:
+    </p>
+    <ul>
+      <li><strong>Business requirements</strong> define the destination.</li>
+      <li><strong>User requirements</strong> describe the travelers’ needs.</li>
+      <li><strong>Functional requirements</strong> chart the route and steps.</li>
+      <li><strong>Non-functional requirements</strong> set the comfort level for the journey.</li>
+    </ul>
+    <p>
+      When all four work together, you don’t just deliver software—you deliver value that performs beautifully for real people in real contexts.
+    </p>
+
+    <blockquote>
+      “It’s not enough to build things right; we have to build the right things, the right way, for the right people.”
+    </blockquote>
+
+    <footer>
+      <p>
+        <em>In short:</em> Business requirements set the goal, user requirements humanize it, functional requirements describe the mechanics, and non-functional requirements ensure quality. Together, they form the DNA of successful software projects—balancing purpose, usability, and performance in harmony.
+      </p>
+    </footer>
+  </main>
+</body>
+</html>

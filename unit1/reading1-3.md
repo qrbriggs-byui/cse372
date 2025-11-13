@@ -1,50 +1,79 @@
-# How Course Outcomes Map to Software Industry Practices
+# IEEE Standards & the Everyday Documents of Requirements
 
-*Connecting classroom lessons to the real world of software development.*
+*A friendly tour of what "good requirements" look like—and the docs teams use to express them.*
 
-If you've ever watched a development team in action, you know that good software doesn't just appear—it's the result of countless conversations, drafts, diagrams, and decisions. Every activity in this course mirrors something real that happens every day in the software industry. Let's walk through how these outcomes connect to the professional world, one skill at a time.
+Early in my career, a product owner slid a sticky note across the table: "Make it easier." That was the whole "requirement." The team laughed, then cried a little. What does "easier" mean? Faster? Fewer clicks? Accessible with a screen reader? That's when I learned why well-structured requirements—and the standards behind them—matter so much. They turn fuzzy wishes into shared, testable understanding.
 
-## Elicit Requirements Using a Variety of Techniques
+## What the IEEE says about "good" requirements
 
-Picture this: a new developer joins a project to build an app for local restaurants. The first thing the team does isn't coding—it's talking. They meet with owners, servers, and customers to understand what everyone actually needs. Some of those conversations are formal interviews; others happen while standing in the kitchen watching how orders are managed.
+The IEEE's guidance for requirements (commonly known today under *ISO/IEC/IEEE 29148*) brings order to the chaos. You don't need to memorize the clause numbers; just remember the spirit:
 
-That's elicitation in action. In class, when you practice stakeholder interviews or observations, you're doing the same thing professionals do—digging beneath assumptions to uncover what really matters.
+- **Clear & unambiguous:** One meaning only. "Fast" becomes "p95 response time < 2 seconds on 4G."
+- **Necessary & feasible:** If it doesn't help the mission—or can't realistically be done—it doesn't belong.
+- **Verifiable:** A tester should be able to say "pass" or "fail" with evidence.
+- **Consistent & complete:** No contradictions, and the important stuff (constraints, interfaces, quality attributes) isn't missing.
+- **Traceable:** Each requirement links back to a stakeholder need, and forward to design, code, and tests.
 
-## Use the IEEE Standards to Analyze and Fill Gaps in Elicitation Data
+One team I worked with printed a pocket card of these qualities. In design reviews, someone would inevitably ask, "How would we verify this?" It gently pushed fluffy statements into crisp, testable ones.
 
-Once the conversations wrap up, teams often realize their notes have holes. Maybe no one mentioned how data should be secured, or how the system handles errors. This is where *IEEE standards* come in handy. They serve like a recipe checklist—helping you catch the missing ingredients before the baking begins.
+> **Plain-language versions help.** If a non-engineer can read a requirement and explain it back accurately, you're on the right track.
 
-In industry, analysts rely on these standards to make sure no critical requirement slips through. When you use IEEE templates or guidelines in class, you're practicing the same methodical review process that professionals use to build reliable systems.
+## Common documentation types (and when to use them)
 
-## Analyze, Model, and Refine Software Requirements
+Different audiences need different views of the same truth. Here are the everyday documents you'll see on real projects, and how they relate to those IEEE ideas.
 
-Ever tried to explain how an app works just by talking? It's tough. That's why industry teams create models—flowcharts, use case diagrams, or prototypes—to make the invisible visible. A friend once told me about a team that used sticky notes on a wall to map out a shopping cart flow before they ever touched a keyboard. They found a dozen logic gaps just from rearranging the notes!
+### Business Requirements Document (BRD): the "Why" and the "What" at a business level
 
-When you analyze and model requirements in this course, you're doing exactly what that team did: turning vague ideas into clear, testable blueprints that guide smarter design.
+The BRD captures outcomes and constraints in business language: "Reduce call-center volume by 20%," "Comply with state privacy law," "Launch before Q3." It sets direction without prescribing design.
 
-## Document Requirements According to IEEE Standards
+*Example:* A bank wants fewer password-reset calls. The BRD frames the goal (reduce support costs, improve customer satisfaction) and boundaries (must meet security policy, support mobile).
 
-Let's be honest—documentation isn't glamorous, but it's what keeps a project from falling apart six months later. Industry engineers follow IEEE standards because they create a common language between developers, testers, and clients. A well-written Software Requirements Specification (SRS) can save entire teams from confusion when new people join or old ones leave.
+### Software Requirements Specification (SRS): the precise, testable system view
 
-When you write requirements using those same standards, you're learning how to produce professional documentation that earns trust and stands up to real-world complexity.
+The SRS is the engineer's playground: functional requirements (*what the system does*), interfaces, data, constraints, and non-functional qualities (*how well it must do it*). IEEE guidance informs its structure and quality.
 
-> **Story from the field:** A student intern once told me her manager was shocked that she already knew how to write an SRS. "You're saving us weeks of work," he said. That's the power of learning industry standards early.
+- **Functional:** "The system shall send a reset link that expires after 15 minutes."
+- **Non-functional:** "Reset email delivery p95 < 60 seconds; service availability ≥ 99.9%."
+- **Constraints:** "Must support WCAG 2.2 AA; data stored in region X."
 
-## Verify and Present Requirements with Stakeholders
+*Anecdote:* On a healthcare project, our SRS's privacy constraints (who can see what, when, and why) saved us from a costly rework when legal requirements shifted mid-sprint—we had traceability.
 
-Once requirements are drafted, it's time for the "show and tell." In the real world, developers and analysts regularly present their findings to clients and teammates. These sessions—called walkthroughs or reviews—aren't just about approval; they're about shared understanding.
+### User stories: the conversational slices of value
 
-In class, when you verify requirements or present your findings, you're simulating those meetings. You're learning how to listen carefully, adjust gracefully, and make sure everyone leaves the room nodding in agreement about what comes next.
+Agile teams favor user stories to center real people and outcomes: `As a customer, I want to reset my password so I can sign in without calling support.` They're small, negotiable, and invite conversation.
 
-## Practice Soft Skills with Teams and Stakeholders
+The trick is pairing stories with acceptance criteria (see below) so they remain testable and aligned with SRS-level rigor. Think of stories as doorways into deeper specs, not replacements.
 
-Finally, let's talk about soft skills. The best engineers I've worked with weren't just brilliant coders—they were great listeners, thoughtful communicators, and patient collaborators. Whether it's calming a worried client or mediating a team debate, these human moments define a project's success just as much as any line of code.
+### Use cases: the structured narratives of interaction
 
-Group projects, role-play interviews, and feedback sessions in this course are your training ground for those skills. Every time you practice empathy, clarity, or teamwork, you're building habits that will carry you far beyond the classroom.
+Use cases describe goal-driven interactions between an *actor* (like "Customer") and the system, complete with *main flow* and *alternate flows*. They're great for exploring edge cases and system boundaries.
 
-> "Software is built by people, for people. The better we understand each other, the better the software becomes."
+*Example (tiny):* "Customer requests password reset → system verifies email → sends time-limited link → customer sets new password." Alternate flows handle wrong emails, expired links, or rate limits.
+
+### Acceptance criteria: the definition of "done" in plain tests
+
+Acceptance criteria turn intent into checks. They can be bullet points or scenario-based (like Given/When/Then). They're where product, dev, and test shake hands.
+
+- **Bullets:** "Link expires after 15 minutes." "At most 5 requests/hour per account."
+- **Gherkin style:** `Given` a registered email, `When` I request reset, `Then` I receive a link within 60 seconds.
+
+A QA lead once told me, "Ambiguity dies in acceptance criteria." She was right—our bug count dropped when we wrote them first.
+
+## How these pieces fit together
+
+Imagine a simple chain:
+
+- **BRD** sets the business outcomes and constraints.
+- **SRS** formalizes system behavior and qualities under IEEE guidance.
+- **User stories** express small, valuable increments of behavior.
+- **Use cases** explore flows and edge cases around those behaviors.
+- **Acceptance criteria** make each increment verifiable.
+
+On healthy teams, these artifacts aren't rivals; they're layers. The BRD points north, the SRS is the map, stories are the daily steps, use cases check the paths, and acceptance criteria tell you when you've arrived.
+
+> "Good requirements are less about fancy templates and more about shared understanding. The standards just help us get there faster—and with fewer surprises."
 
 ---
 
-*In the end:* These course outcomes aren't just academic—they're the building blocks of professional practice. Each exercise mirrors what real software teams do every day: discover needs, document clearly, communicate openly, and collaborate with care. Master these now, and you'll be ready for the fast-paced, people-centered world of software development that waits beyond graduation.
+*Bottom line:* IEEE guidance gives requirements their backbone—clear, verifiable, consistent, and traceable. The everyday documents (BRD, SRS, user stories, use cases, acceptance criteria) give different audiences the view they need. Use them together, and that sticky note that once said "Make it easier" becomes a product your users will actually love.
 

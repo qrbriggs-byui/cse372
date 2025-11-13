@@ -1,79 +1,36 @@
-# IEEE Standards & the Everyday Documents of Requirements
+# Foundational Professional Skills: Communication, Teamwork, and Active Listening
 
-*A friendly tour of what "good requirements" look like—and the docs teams use to express them.*
+*Why these "soft skills" are actually the hardest—and most rewarding—to master.*
 
-Early in my career, a product owner slid a sticky note across the table: "Make it easier." That was the whole "requirement." The team laughed, then cried a little. What does "easier" mean? Faster? Fewer clicks? Accessible with a screen reader? That's when I learned why well-structured requirements—and the standards behind them—matter so much. They turn fuzzy wishes into shared, testable understanding.
+In every workplace I've ever been part of—whether it was a small student project or a big corporate software team—the same truth kept surfacing: it's not just what you know, it's how you connect with others. Communication, teamwork, and active listening might sound simple, but they're the foundation that holds every project together. Without them, even the best technical skills can fall flat.
 
-## What the IEEE says about "good" requirements
+## Communication: Making Understanding Happen
 
-The IEEE's guidance for requirements (commonly known today under *ISO/IEC/IEEE 29148*) brings order to the chaos. You don't need to memorize the clause numbers; just remember the spirit:
+I once watched a developer explain a new feature to a non-technical client using dense jargon and architecture diagrams. The client nodded politely, but it was clear she was lost. A few weeks later, the client was frustrated because the feature didn't meet her needs—she'd misunderstood what the developer meant.
 
-- **Clear & unambiguous:** One meaning only. "Fast" becomes "p95 response time < 2 seconds on 4G."
-- **Necessary & feasible:** If it doesn't help the mission—or can't realistically be done—it doesn't belong.
-- **Verifiable:** A tester should be able to say "pass" or "fail" with evidence.
-- **Consistent & complete:** No contradictions, and the important stuff (constraints, interfaces, quality attributes) isn't missing.
-- **Traceable:** Each requirement links back to a stakeholder need, and forward to design, code, and tests.
+Communication isn't just talking—it's making sure the other person understands. That means using plain language, visuals, and examples, and always checking in: "Does that make sense?" In professional settings, great communicators bridge gaps between technical and non-technical worlds, helping everyone move in the same direction.
 
-One team I worked with printed a pocket card of these qualities. In design reviews, someone would inevitably ask, "How would we verify this?" It gently pushed fluffy statements into crisp, testable ones.
+> **Pro tip:** Communication isn't about showing how much you know—it's about making it easy for others to know what matters.
 
-> **Plain-language versions help.** If a non-engineer can read a requirement and explain it back accurately, you're on the right track.
+## Teamwork: Building Something Bigger Together
 
-## Common documentation types (and when to use them)
+A few semesters ago, I worked with a group of classmates on a software design project. We were all strong programmers, but at first, we worked in silos—each person guarding their piece of the puzzle. The result? Code that didn't fit together and a lot of late nights fixing merge conflicts.
 
-Different audiences need different views of the same truth. Here are the everyday documents you'll see on real projects, and how they relate to those IEEE ideas.
+Then we started having short daily check-ins. We shared updates, asked for help, and celebrated small wins. Suddenly, the project clicked—literally and figuratively. Our collaboration became smoother, and morale went up. That's teamwork: balancing individual strengths while staying focused on a shared goal. In the industry, teamwork looks like this too—cross-functional teams aligning design, development, and business goals to deliver something no one could create alone.
 
-### Business Requirements Document (BRD): the "Why" and the "What" at a business level
+## Active Listening: The Skill That Changes Everything
 
-The BRD captures outcomes and constraints in business language: "Reduce call-center volume by 20%," "Comply with state privacy law," "Launch before Q3." It sets direction without prescribing design.
+Once, during an internship, I joined a requirements meeting where a senior engineer said almost nothing for half an hour. I assumed he was disengaged—until he spoke up and perfectly summarized what everyone had said, including a concern that no one had voiced directly. The room went silent, then everyone nodded in agreement. That's active listening in action.
 
-*Example:* A bank wants fewer password-reset calls. The BRD frames the goal (reduce support costs, improve customer satisfaction) and boundaries (must meet security policy, support mobile).
+Active listening means giving someone your full attention, asking clarifying questions, and reflecting back what you've heard. It's not waiting for your turn to talk—it's tuning in to understand. When you listen actively, you catch details, prevent misunderstandings, and build trust. Teams that practice active listening avoid "we thought you meant…" moments, saving time and frustration.
 
-### Software Requirements Specification (SRS): the precise, testable system view
+> "People don't care how much you know until they know how much you care." — Theodore Roosevelt
 
-The SRS is the engineer's playground: functional requirements (*what the system does*), interfaces, data, constraints, and non-functional qualities (*how well it must do it*). IEEE guidance informs its structure and quality.
+## Putting It All Together
 
-- **Functional:** "The system shall send a reset link that expires after 15 minutes."
-- **Non-functional:** "Reset email delivery p95 < 60 seconds; service availability ≥ 99.9%."
-- **Constraints:** "Must support WCAG 2.2 AA; data stored in region X."
-
-*Anecdote:* On a healthcare project, our SRS's privacy constraints (who can see what, when, and why) saved us from a costly rework when legal requirements shifted mid-sprint—we had traceability.
-
-### User stories: the conversational slices of value
-
-Agile teams favor user stories to center real people and outcomes: `As a customer, I want to reset my password so I can sign in without calling support.` They're small, negotiable, and invite conversation.
-
-The trick is pairing stories with acceptance criteria (see below) so they remain testable and aligned with SRS-level rigor. Think of stories as doorways into deeper specs, not replacements.
-
-### Use cases: the structured narratives of interaction
-
-Use cases describe goal-driven interactions between an *actor* (like "Customer") and the system, complete with *main flow* and *alternate flows*. They're great for exploring edge cases and system boundaries.
-
-*Example (tiny):* "Customer requests password reset → system verifies email → sends time-limited link → customer sets new password." Alternate flows handle wrong emails, expired links, or rate limits.
-
-### Acceptance criteria: the definition of "done" in plain tests
-
-Acceptance criteria turn intent into checks. They can be bullet points or scenario-based (like Given/When/Then). They're where product, dev, and test shake hands.
-
-- **Bullets:** "Link expires after 15 minutes." "At most 5 requests/hour per account."
-- **Gherkin style:** `Given` a registered email, `When` I request reset, `Then` I receive a link within 60 seconds.
-
-A QA lead once told me, "Ambiguity dies in acceptance criteria." She was right—our bug count dropped when we wrote them first.
-
-## How these pieces fit together
-
-Imagine a simple chain:
-
-- **BRD** sets the business outcomes and constraints.
-- **SRS** formalizes system behavior and qualities under IEEE guidance.
-- **User stories** express small, valuable increments of behavior.
-- **Use cases** explore flows and edge cases around those behaviors.
-- **Acceptance criteria** make each increment verifiable.
-
-On healthy teams, these artifacts aren't rivals; they're layers. The BRD points north, the SRS is the map, stories are the daily steps, use cases check the paths, and acceptance criteria tell you when you've arrived.
-
-> "Good requirements are less about fancy templates and more about shared understanding. The standards just help us get there faster—and with fewer surprises."
+These three skills—communication, teamwork, and active listening—work best when they work together. You communicate clearly, so your team stays aligned. You collaborate openly, so everyone's strengths shine. You listen actively, so people feel heard and valued. When that happens, teams don't just complete projects—they build relationships, grow trust, and create work they're proud of.
 
 ---
 
-*Bottom line:* IEEE guidance gives requirements their backbone—clear, verifiable, consistent, and traceable. The everyday documents (BRD, SRS, user stories, use cases, acceptance criteria) give different audiences the view they need. Use them together, and that sticky note that once said "Make it easier" becomes a product your users will actually love.
+*In short:* technical skills may get your foot in the door, but communication, teamwork, and listening keep the door open. Mastering these foundational professional skills turns good professionals into great collaborators—and great collaborators into future leaders.
 

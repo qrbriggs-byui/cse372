@@ -34,7 +34,7 @@ By visualizing connections like this, it becomes easier to spot which ideas fit 
 
 ## A Real-World Example
 
-I once worked with a student project team building a volunteer management system for a local nonprofit. During their workshop, they uncovered user needs like “volunteers want to track their hours easily” and “managers want automatic reports.” Great ideas—but when we reviewed the nonprofit’s goals, we realized their top priority was minimizing ongoing maintenance costs. The team adjusted by designing a simple reporting system that exported data to an existing spreadsheet tool, rather than creating a complex custom dashboard. The result met user needs *and* fit within the organization’s financial reality.
+Consider a student project team building a volunteer management system for a local nonprofit. During their workshop, they uncovered user needs like “volunteers want to track their hours easily” and “managers want automatic reports.” Great ideas—but when they reviewed the nonprofit’s goals, they realized their top priority was minimizing ongoing maintenance costs. The team adjusted by designing a simple reporting system that exported data to an existing spreadsheet tool, rather than creating a complex custom dashboard. The result met user needs *and* fit within the organization’s financial reality.
 
 ## Tips for Making the Connection
 

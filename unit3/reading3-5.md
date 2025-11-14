@@ -14,7 +14,7 @@ Facilitation is less about having all the answers and more about asking the *rig
 
 Consensus-building doesn’t mean everyone gets exactly what they want—it means everyone feels *heard* and can *support* the decision, even if it’s not their first choice. It’s about building commitment, not just compliance.
 
-I once watched a project team struggle to choose a development framework. The backend engineers wanted stability, the frontend team wanted flexibility, and the manager just wanted the project to ship on time. The turning point came when the facilitator asked each group to list their top three priorities. Once everyone saw that “maintainability” appeared on every list, the conversation shifted. Instead of arguing about tools, the team worked together to find a framework that satisfied that shared value. Consensus grew naturally from clarity and respect.
+Consider a project team struggling to choose a development framework. The backend engineers want stability, the frontend team want flexibility, and the manager just wants the project to ship on time. The turning point came when the facilitator asked each group to list their top three priorities. Once everyone saw that “maintainability” appeared on every list, the conversation shifted. Instead of arguing about tools, the team worked together to find a framework that satisfied that shared value. Consensus grew naturally from clarity and respect.
 
 ## How to Develop These Skills
 

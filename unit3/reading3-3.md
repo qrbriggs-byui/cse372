@@ -20,9 +20,9 @@ High-level needs are broad, strategic statements that describe what stakeholders
 
 That’s not a detailed requirement—it doesn’t specify screen designs or database structures—but it clearly communicates the intended outcome. Capturing needs at this level helps teams stay aligned on *purpose* before diving into the technical weeds.
 
-## Writing a BRD: A Story from Experience
+## Writing a BRD: A Less-Effective Example
 
-A few years ago, a student team I mentored was tasked with developing a campus parking management system. They jumped straight into coding—building login pages and sensor logic—before they had a clear picture of what the university *really needed*. When they finally met with the facilities manager, they learned the biggest issue wasn’t lack of technology—it was the confusion caused by inconsistent permit rules. 
+Consider a student team tasked with developing a campus parking management system. Imagine if they jumped straight into coding—building login pages and sensor logic—before they had a clear picture of what the university *really needed*? When they finally met with the facilities manager, what if they then learned the biggest issue wasn’t lack of technology—it was the confusion caused by inconsistent permit rules?
 
 Had they started with a BRD, they would have documented high-level needs like:
 

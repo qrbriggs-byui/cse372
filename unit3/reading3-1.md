@@ -12,7 +12,7 @@ If you’re facilitating, start by setting clear expectations. Explain the works
 
 Listening is the most underrated skill in a requirements workshop. Don’t just note down requests—ask questions that reveal the reasoning behind them. For example, if a user says, “The app should load instantly,” ask what “instantly” means to them. Are they frustrated by long startup times or by waiting for data to sync? Clarifying this turns vague wishes into actionable requirements.
 
-I once observed a student team working on a food-ordering system for a university café. When a participant said, “It needs to be easy to use,” the team initially planned a minimalist interface. But after some follow-up questions, they learned the real issue was that students had to log in repeatedly to check orders. The “ease of use” wasn’t about layout—it was about smoother session handling. That’s the power of asking *why*.
+Imagine a student team working on a food-ordering system for a university café. When a participant said, “It needs to be easy to use,” the team initially planned a minimalist interface. But after some follow-up questions, they learned the real issue was that students had to log in repeatedly to check orders. The “ease of use” wasn’t about layout—it was about smoother session handling. That’s the power of asking *why*.
 
 ## Techniques that Help
 

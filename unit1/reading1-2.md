@@ -55,3 +55,4 @@ When all four work together, you don't just deliver software—you deliver value
 
 *In short:* Business requirements set the goal, user requirements humanize it, functional requirements describe the mechanics, and non-functional requirements ensure quality. Together, they form the DNA of successful software projects—balancing purpose, usability, and performance in harmony.
 
+

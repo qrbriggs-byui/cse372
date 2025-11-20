@@ -20,7 +20,7 @@ Good facilitation keeps energy high and discussions productive. A few practical 
 
 - **Post-it clustering:** Have participants jot down ideas on sticky notes, then group similar ones to spot themes.
 - **User stories:** Capture needs in a simple format: “As a [user role], I want [goal] so that [benefit].” This helps ground requirements in real contexts.
-- **Dot voting:** When you have many ideas, ask everyone to vote on their top priorities. It’s a quick, visual way to find consensus.
+- **Dot voting:** When you have many ideas, ask everyone to vote on their top priorities. Participants put a dot next to the most important ideas. It’s a quick, visual way to find consensus.
 
 Visuals and hands-on methods help people articulate thoughts that might be hard to express verbally—and they make the session more engaging.
 

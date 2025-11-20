@@ -77,3 +77,4 @@ On healthy teams, these artifacts aren't rivals; they're layers. The BRD points 
 
 *Bottom line:* IEEE guidance gives requirements their backbone—clear, verifiable, consistent, and traceable. The everyday documents (BRD, SRS, user stories, use cases, acceptance criteria) give different audiences the view they need. Use them together, and that sticky note that once said "Make it easier" becomes a product your users will actually love.
 
+

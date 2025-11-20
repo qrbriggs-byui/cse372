@@ -52,3 +52,4 @@ My favorite anecdote is the "gloves test." A team shipped a perfect UI that fail
 
 *Bottom line:* Requirements are the SDLC's friendly guardrails. They build shared understanding, reduce risk, guide design, enable testing, and keep stakeholders aligned—so the product you ship is not just built right, but built **for the right thing**.
 
+

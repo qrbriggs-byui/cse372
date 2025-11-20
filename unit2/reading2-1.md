@@ -99,3 +99,4 @@ Most great interviews are **semi-structured**: you bring a core script for cover
 
 *Bottom line:* Structured interviews give you coverage; unstructured interviews give you color. Blend them, listen deeply, and you'll leave every conversation with clearer requirements and stronger relationships.
 
+

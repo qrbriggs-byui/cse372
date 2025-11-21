@@ -68,7 +68,7 @@
 
 ---
 
-### **Weeks 10–11: Standards-Based Gap Analysis → Software Requirements Specification (SRS) \+ `spec.md`**
+### **Weeks 10–11: Standards-Based Gap Analysis → Software Requirements Specification (SRS) **
 
 * Apply IEEE standards (29148, 830\) to analyze requirements for completeness and consistency.
 
@@ -76,25 +76,23 @@
 
 * Refine and consolidate requirements into a formal **Software Requirements Specification (SRS)**.
 
-* Translate selected requirements into **`spec.md` format**, demonstrating AI-ready documentation.
-
 * Emphasize measurability, traceability, and testability.
 
 * Practice technical writing and critical analysis of requirements quality.
 
 ---
 
-### **Weeks 12–13: Verification & Presentation → Final Integrated Deliverable \+ `spec.md`**
+### **Weeks 12–13: AI-Assisted Requirements Elicitation**
 
-* Conduct peer/stakeholder reviews to verify requirements.
+* Introduce the evolution of AI in requirements engineering and its application to elicitation and analysis.
 
-* Prepare and present a professional requirements package combining BRD, SRS, use cases, user stories, acceptance criteria, and **`spec.md` snippets**.
+* Explore AI tools such as large language models and repositories like **Speckit** for knowledge-driven elicitation.
 
-* Demonstrate ability to explain rationale, resolve conflicts, and adjust based on feedback.
+* Use AI systems to identify ambiguity, duplication, and conflicts in requirement statements.
 
-* Deliver a polished **final requirements document set** aligned with IEEE standards and AI-ready practices.
+* Apply prompt-engineering techniques to refine elicitation outputs and tailor AI assistance to project contexts.
 
-* Reflect on personal growth in elicitation, analysis, documentation, and communication.
+* Develop critical evaluation and ethical judgment skills for responsible use of AI in engineering practice.
 
 ---
 
